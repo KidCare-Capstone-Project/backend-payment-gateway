@@ -72,20 +72,11 @@ The team will focus on developing and testing the following features:
   <img src="assets/Documentation/Architecture KidCare.jpg" width="200">
 </p>
 
-<p align="center">
-  <img src="assets/Documentation/Architecture_ KidCare ML API.png" width="200">
-</p>
-
-## CloudComputing RoadMaps
+## CloudComputing Backend Payment RoadMaps
 - [x] [Visual Studio](https://code.visualstudio.com/)
 - [x] [Ubuntu WSL](https://apps.microsoft.com/detail/9PDXGNCFSCZV?hl=neutral&gl=ID&ocid=pdpshare)
-- [x] [Flask API](https://flask.palletsprojects.com/en/stable/)
-- [x] [TensorFlow Lite](https://www.tensorflow.org/api_docs/python/tf/lite)
-- [x] [Docker](https://docs.docker.com/reference/dockerfile)
-- [x] [Google Cloud Platform](https://cloud.google.com)
-- [x] [Cloud Run](https://cloud.google.com/run?hl=en)
-- [x] [Cloud Storage](https://cloud.google.com/storage?hl=en)
-- [x] [Artifact Registery](https://cloud.google.com/artifact-registry/docs?hl=idhttps://cloud.google.com/artifact-registry/docs?hl=id)
+- [x] [Express JS](https://expressjs.com/)
+- [x] [Midtrans](https://docs.midtrans.com/docs/midtrans-api-libraries-plugins)
 
 ## Features
 - [x] Calculator stunting
@@ -93,83 +84,26 @@ The team will focus on developing and testing the following features:
 
 ## Requirement
 * Visual Studio
-* WSL Ubuntu
-* Python 10.15.0 or Higher
-* TensorFlow 
-* Flask API
-* Numpay
-* Pandas
-* venv
-* Google Cloud Platform
+* Express Js
+* Node js 18 or Higher
 
 
 ## Installation
-### 0.1 Instal WSL Ubuntu
-### 0.2 Make A Directory At WSL Ubuntu
+### Local Deployment Testing
+1.Clone to your local project pc or laptop
 ```bash
-mkdir path/yourfolder
+https://github.com/KidCare-Capstone-Project/backend-payment-gateway.git
 ```
-### 0.3 Open your visual studio Cd to your directory path
+2.Instal Depedencies
 ```bash
-cd path/yourfolder
+npm instal
 ```
-### 0.4 Authorize your local with data Google Cloud
-use your google account and project id
+3.For testing local makesure add some scripts at package json
 ```bash
-gcloud auth login --no-launch-browser
+"start": "node server.js",
 ```
-### 1. Clone this Project to local (Clone to your folder WSL Ubuntu) or cloud
+4. Running your server at local
 ```bash
-git clone https://github.com/KidCare-Capstone-Project/Cloud_computing.git
-```
-### 2. Local Deployment 
-2.1
-Open the Project in your Visual Studio remote WSL ubuntu Venv and instal Python
-```bash
-sudo apt install python3.10 python3.10-venv
-```
-2.2 Active your venv
-```bash
-source .venv/bin/activate
-```
-2.3 Instal Requirements.txt
-```bash
-pip install -r requirements.txt
-```
-2.4 Run your flask run at http://127.0.0.1:5000/predict
-```bash
-flask run
-```
-
-### 3 For Cloud Deployment 
-3.1 Open CLI
-Cd to folder
-```bash
-cd Cloud_computing
-```
-3.2 Remove Line at google cloud editor at file app.py
-```bash
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
-```
-3.3 Back to CLI and Enable Artifact Registery
-```bash
-gcloud services enable artifactregistry.googleapis.com cloudbuild.googleapis.com run.googleapis.com
-```
-3.4 Enable Artifact Registery
-```bash
-gcloud services enable artifactregistry.googleapis.com cloudbuild.googleapis.com run.googleapis.com
-```
-3.5 Make A Repository
-```bash
-gcloud artifacts repositories create backend --repository-format=docker --location=asia-southeast2 --async
-```
-3.6 Submit Image to Artifact Registery
-```bash
-gcloud builds submit --tag asia-southeast2-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/backend/Ml-Prediction-api:1.0.0
-```
-3.7 Deploy Your API
-```bash
-gcloud run deploy --image asia-southeast2-docker.pkg.dev/${GOOGLE_CLOUD_PROJECT}/backend/Ml-Prediction-api:1.0.0
+npm run start
 ```
 ## Finish
